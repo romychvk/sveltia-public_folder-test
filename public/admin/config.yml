@@ -2,7 +2,7 @@ backend:
   name: github
   repo: romychvk/sveltia-public_folder-test
   branch: main
-  base_url: https://sveltia-public-folder-test.pages.dev/
+  base_url: https://admin.zina.dev/
 
 publish_mode: editorial_workflow
 
