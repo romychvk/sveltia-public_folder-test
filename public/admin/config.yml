@@ -1,0 +1,85 @@
+backend:
+  name: github
+  repo: romychvk/sveltia-public_folder-test
+  branch: main
+  base_url: https://sveltia-cms-auth.yunielacosta738.workers.dev/
+
+publish_mode: editorial_workflow
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '-'
+
+media_folder: '/src/assets/images' # Location where files will be stored in the repo
+public_folder: '/images' # The src attribute for uploaded media
+
+collections:
+  - name: 'posts'
+    label: 'Posts'
+    label_singular: 'Post'
+    folder: 'src/content/blog'
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    media_folder: '/src/assets/images/blog' # Location where files will be stored in the repo
+    public_folder: '../../assets/images/blog' # The src attribute for uploaded media
+    fields:
+      - name: 'title'
+        widget: 'string'
+        label: 'Title'
+      - name: 'description'
+        widget: 'string'
+        label: 'Description'
+        required: false
+      - name: 'pubDate'
+        widget: 'datetime'
+        label: 'Publish Date'
+      - name: 'image'
+        widget: 'image'
+        label: 'Image'
+        required: false
+      - name: 'body'
+        widget: 'markdown'
+        label: 'Body'
+        required: false
+
+singletons:
+  - name: 'authors'
+    label: 'Authors'
+    file: 'src/content/authors.md'
+    media_folder: '/src/assets/images/authors' # Location where files will be stored in the repo
+    public_folder: '/images/authors' # The src attribute for uploaded media
+    fields:
+      - name: 'authors'
+        widget: 'list'
+        label: 'Authors'
+        label_singular: 'Author'
+        required: true
+        fields:
+          - name: 'name'
+            widget: 'string'
+            label: 'Name'
+          - name: 'image'
+            widget: 'image'
+            label: 'Image'
+            required: false
+  - name: 'categories'
+    label: 'Categories'
+    file: 'src/content/categories.md'
+    media_folder: '/src/assets/images/categories' # Location where files will be stored in the repo
+    public_folder: '/images/categories' # The src attribute for uploaded media
+    fields:
+      - name: 'categories'
+        widget: 'list'
+        label: 'Categories'
+        label_singular: 'Category'
+        required: true
+        fields:
+          - name: 'name'
+            widget: 'string'
+            label: 'Name'
+          - name: 'image'
+            widget: 'image'
+            label: 'Image'
+            required: false
