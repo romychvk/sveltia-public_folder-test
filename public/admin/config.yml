@@ -23,21 +23,21 @@ collections:
     slug: '{{slug}}'
     extension: md
     media_folder: '/src/assets/images/blog' # Location where files will be stored in the repo
-    public_folder: '../../assets/images/blog' # The src attribute for uploaded media
+    public_folder: '/images/blog' # The src attribute for uploaded media
     fields:
       - name: 'title'
         widget: 'string'
         label: 'Title'
-      - name: 'description'
-        widget: 'string'
-        label: 'Description'
-        required: false
       - name: 'pubDate'
         widget: 'datetime'
         label: 'Publish Date'
       - name: 'image'
         widget: 'image'
         label: 'Image'
+        required: false
+      - name: 'description'
+        widget: 'markdown'
+        label: 'Description'
         required: false
       - name: 'body'
         widget: 'markdown'
